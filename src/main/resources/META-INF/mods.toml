@@ -1,52 +1,59 @@
-# This is an example mods.toml file. It contains the data relating to the loading mods.
+# This is the mods.toml file, aka mod infos
 # There are several mandatory fields (#mandatory), and many more that are optional (#optional).
-# The overall format is standard TOML format, v0.5.0.
-# Note that there are a couple of TOML lists in this file.
 # Find more information on toml format here:  https://github.com/toml-lang/toml
-# The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
+
 modLoader="javafml" #mandatory
+
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
-loaderVersion="[30,)" #mandatory (26 is current forge version)
-# A URL to refer people to when problems occur with this mod
-issueTrackerURL="http://my.issue.tracker/" #optional
-# A list of mods - how many allowed here is determined by the individual mod loader
+loaderVersion="[31,)" #mandatory
+
+issueTrackerURL="https://github.com/Cacofiin/Git-ModTEST/issues" #mandatory
+
 [[mods]] #mandatory
-# The modid of the mod
-modId="mytutorial" #mandatory
-# The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-version="${file.jarVersion}" #mandatory
- # A display name for the mod
-displayName="My Tutorial" #mandatory
-# A URL to query for updates for this mod. See the JSON update specification <here>
-updateJSONURL="http://myurl.me/" #optional
-# A URL for the "homepage" for this mod, displayed in the mod UI
-displayURL="http://example.com/" #optional
-# A file name (in the root of the mod JAR) containing a logo for display
-logoFile="mytutorial.png" #optional
+
+modId="testmod" #mandatory
+
+version="0.0" #mandatory
+
+# User friendly name for the mod
+displayName="TEST" #mandatory
+
+# A URL to query for updates
+updateJSONURL="https://nyeh.com" #mandatory
+
+# A URL for the "homepage"
+displayURL="https://github.com/Cacofiin/Git-ModTEST" #mandatory
+
+logoFile="nyeh.png" #mandatory
+
 # A text field displayed in the mod UI
-credits="Thanks for this example mod goes to Java" #optional
+credits="Cacofiin and TurtyWurty's tutorial" #optional
+
 # A text field displayed in the mod UI
-authors="McJty" #optional
+authors="Cacofiin" #optional
+
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-McJty 1.15 Tutorial Code
+Here's the tutorial i used : https://www.youtube.com/playlist?list=PLaevjqy3XufYmltqo0eQusnkKVN7MpTUe
+
+And i should clarify that i'm making this mod for test purposes only.
 '''
-# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.mytutorial]] #optional
+
+[[dependencies.testmod]] #optional
     # the modid of the dependency
     modId="forge" #mandatory
     # Does this dependency have to exist - if not, ordering below must be specified
     mandatory=true #mandatory
     # The version range of the dependency
-    versionRange="[30,)" #mandatory
+    versionRange="[31,)" #mandatory
     # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
-# Here's another dependency
-[[dependencies.mytutorial]]
+
+[[dependencies.testmod]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15.1,)"
+    versionRange="[1.15.2]"
     ordering="NONE"
     side="BOTH"
