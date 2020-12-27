@@ -1,9 +1,13 @@
 package cacofiin.testmod;
 
+import cacofiin.testmod.init.ItemInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -25,8 +29,9 @@ public class TestMod{
     public static TestMod instance;
 
     public TestMod() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        modEventBus.addListener(this::setup);
+        modEventBus.addListener(this::doClientStuff);
         instance=this;
 
         // Register ourselves for server and other game events we are interested in
@@ -44,5 +49,19 @@ public class TestMod{
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event){
 
+    }
+
+    public static class TestItemGroup extends ItemGroup{
+
+        public static final TestItemGroup instance = new TestItemGroup(ItemGroup.GROUPS.length, "testtab");
+
+        private TestItemGroup(int index, String label){
+            super(index, label);
+        }
+
+        @Override
+        public ItemStack createIcon(){
+            return new ItemStack(ItemInit.example_item);
+        }
     }
 }
