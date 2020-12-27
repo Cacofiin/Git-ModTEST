@@ -15,17 +15,19 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.stream.Collectors;
 
 @Mod("testmod")
 public class TestMod{
 
     private static final Logger LOGGER = LogManager.getLogger();
+    public static final String MOD_ID="testmod";
+    public static TestMod instance;
 
     public TestMod() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        instance=this;
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
