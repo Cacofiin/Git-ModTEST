@@ -1,7 +1,7 @@
 {
   "itemGroup.testtab": "Test",
 
-  "item.testmod.example_item": "Item",
+  "item.testmod.example_item": "Nyeh",
   "item.testmod.example_food": "Glowing Pix",
 
   "item.testmod.example_sword": "NYEH Sword",
@@ -10,5 +10,6 @@
   "item.testmod.example_shovel": "NYEH Spoon",
   "item.testmod.example_hoe": "NYEH Hoe",
 
-  "block.testmod.example_block": "Block"
+  "block.testmod.example_block": "Block",
+  "block.testmod.example_ore": "Nyeh Ore"
 }
