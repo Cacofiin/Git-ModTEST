@@ -4,5 +4,11 @@
   "item.testmod.example_item": "Item",
   "item.testmod.example_food": "Glowing Pix",
 
+  "item.testmod.example_sword": "NYEH Sword",
+  "item.testmod.example_pickaxe": "NYEH Pickaxe",
+  "item.testmod.example_axe": "NYEH Axe",
+  "item.testmod.example_shovel": "NYEH Spoon",
+  "item.testmod.example_hoe": "NYEH Hoe",
+
   "block.testmod.example_block": "Block"
 }

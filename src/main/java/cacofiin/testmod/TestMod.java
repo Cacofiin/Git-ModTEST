@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 @Mod("testmod")
 public class TestMod{
 
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID="testmod";
     public static TestMod instance;
 
