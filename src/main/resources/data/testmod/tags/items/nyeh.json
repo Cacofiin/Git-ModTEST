@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "testmod:example_ore",
+    "testmod:example_item",
+    "testmod:example_sword",
+    "testmod:example_pickaxe",
+    "testmod:example_axe",
+    "testmod:example_hoe",
+    "testmod:example_shovel"
+  ]
+}

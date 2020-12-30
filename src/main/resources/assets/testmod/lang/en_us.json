@@ -1,8 +1,15 @@
 {
   "itemGroup.testtab": "Test",
 
-  "item.testmod.example_item": "Nyeh",
+  "item.testmod.example_item": "NYEH",
   "item.testmod.example_food": "Glowing Pix",
+
+  "item.testmod.example_advitem": "NYEH wand",
+
+  "item.testmod.example_helmet": "NYEH helmet",
+  "item.testmod.example_chestplate": "NYEH chestplate",
+  "item.testmod.example_leggings": "NYEH leggings",
+  "item.testmod.example_boots": "NYEH boots",
 
   "item.testmod.example_sword": "NYEH Sword",
   "item.testmod.example_pickaxe": "NYEH Pickaxe",
