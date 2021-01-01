@@ -17,6 +17,8 @@
   "item.testmod.example_shovel": "NYEH Spoon",
   "item.testmod.example_hoe": "NYEH Hoe",
 
-  "block.testmod.example_block": "Block",
+  "block.testmod.example_advblock": "Direction",
+
+  "block.testmod.example_block": "Stony",
   "block.testmod.example_ore": "Nyeh Ore"
 }

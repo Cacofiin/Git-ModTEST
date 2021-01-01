@@ -49,7 +49,7 @@ public class ItemInit{
         event.getRegistry().register(new Item(new Item.Properties().group(TestMod.TestItemGroup.instance).food(new Food.Builder().hunger(1).saturation(0.5f).setAlwaysEdible().effect(new EffectInstance(Effects.GLOWING, 60, 1),1).build())).setRegistryName("example_food"));
 
         //Special items (advanced)
-        event.getRegistry().register(new SpecialItem(new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_advitem"));
+        event.getRegistry().register(new SpecialItem(new Item.Properties().group(TestMod.TestItemGroup.instance).maxStackSize(1)).setRegistryName("example_advitem"));
 
         //Armor
         event.getRegistry().register(new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.HEAD, new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_helmet"));
@@ -120,7 +120,7 @@ public class ItemInit{
 
     //Mod custom armor
     public enum ModArmorMaterial implements IArmorMaterial{
-        TEST(TestMod.MOD_ID+ ":example", 12, new int[] {7,9,11,7}, 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 6.9f, () -> {
+        TEST(TestMod.MOD_ID+ ":example", 12, new int[] {4,7,9,4}, 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.5f, () -> {
            return Ingredient.fromItems(ItemInit.example_item);
         });
 

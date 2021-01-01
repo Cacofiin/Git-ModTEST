@@ -2,6 +2,7 @@ package cacofiin.testmod.init;
 
 import cacofiin.testmod.TestMod;
 
+import cacofiin.testmod.objects.blocks.SpecialBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.OreBlock;
 import net.minecraft.block.SoundType;
@@ -25,15 +26,19 @@ public class BlockInit{
     public static final Block example_block = null;
     public static final Block example_ore = null;
 
+    public static final Block example_advblock=null;
+
     @SubscribeEvent
     public static void registerBlock(final RegistryEvent.Register<Block> event){
         event.getRegistry().register(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(0.7f,15.0f).sound(SoundType.STONE).harvestTool(ToolType.PICKAXE).harvestLevel(1)).setRegistryName("example_block"));
         event.getRegistry().register(new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.4f,20.0f).sound(SoundType.STONE).harvestTool(ToolType.PICKAXE).harvestLevel(3)).setRegistryName("example_ore"));
+        event.getRegistry().register(new SpecialBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.7f,10.0f).sound(SoundType.WOOD).harvestTool(ToolType.AXE).harvestLevel(0)).setRegistryName("example_advblock"));
     }
 
     @SubscribeEvent
     public static void registerBlockItems(final RegistryEvent.Register<Item> event){
         event.getRegistry().register(new BlockItem(example_block, new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_block"));
         event.getRegistry().register(new BlockItem(example_ore, new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_ore"));
+        event.getRegistry().register(new BlockItem(example_advblock, new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_advblock"));
     }
 }
