@@ -1,6 +1,7 @@
 package cacofiin.testmod;
 
 import cacofiin.testmod.init.ItemInit;
+import cacofiin.testmod.init.ModTileEntityTypes;
 import cacofiin.testmod.world.gen.TestOreGen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -32,6 +33,8 @@ public class TestMod{
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::doClientStuff);
         instance=this;
+
+        ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
