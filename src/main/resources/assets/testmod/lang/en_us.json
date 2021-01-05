@@ -20,5 +20,11 @@
   "block.testmod.example_advblock": "Direction",
 
   "block.testmod.example_block": "Stony",
-  "block.testmod.example_ore": "Nyeh Ore"
+  "block.testmod.example_ore": "Nyeh Ore",
+  "block.testmod.example_fence": "Stony Fence",
+  "block.testmod.example_pressure_plate": "Stony Plate",
+  "block.testmod.example_button": "Stony Butt",
+  "block.testmod.example_stairs": "Stony Stairs",
+  "block.testmod.example_wall": "Stony Wall",
+  "block.testmod.example_slab": "Stony Slab"
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "block/fence_side",
+  "textures": {
+    "texture": "testmod:blocks/example_block"
+  }
+}
