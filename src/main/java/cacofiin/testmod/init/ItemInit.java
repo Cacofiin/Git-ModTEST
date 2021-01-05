@@ -15,60 +15,48 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ObjectHolder;
+import org.lwjgl.system.CallbackI;
 
 import javax.swing.*;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-@Mod.EventBusSubscriber(modid = TestMod.MOD_ID, bus = Bus.MOD)
-@ObjectHolder(TestMod.MOD_ID)
 public class ItemInit{
+    public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, TestMod.MOD_ID);
 
-    public static final Item example_advitem=null;
+    //item (ore)
+    public static final RegistryObject<Item> example_item = ITEMS.register("example_item", () -> new Item(new Item.Properties().group(TestMod.TestItemGroup.instance)));
 
-    public static final Item example_item=null;
-    public static final Item example_food=null;
+    //food
+    public static final RegistryObject<Item> example_food = ITEMS.register("example_food", () -> new Item(new Item.Properties().group(TestMod.TestItemGroup.instance)
+            .food(new Food.Builder().hunger(1).saturation(0.5f).setAlwaysEdible().effect(new EffectInstance(Effects.GLOWING, 60, 1),1).build())));
 
-    public static final Item example_helmet=null;
-    public static final Item example_chestplate=null;
-    public static final Item example_leggings=null;
-    public static final Item example_boots=null;
+    //advanced item
+    public static final RegistryObject<Item> example_advitem = ITEMS.register("example_advitem", () -> new SpecialItem(new Item.Properties().group(TestMod.TestItemGroup.instance).maxStackSize(1)));
 
-    public static final Item example_sword=null;
-    public static final Item example_pickaxe=null;
-    public static final Item example_axe=null;
-    public static final Item example_shovel=null;
-    public static final Item example_hoe=null;
+    //armour
+    public static final RegistryObject<Item> example_helmet = ITEMS.register("example_helmet",() -> new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.HEAD, new Item.Properties().group(TestMod.TestItemGroup.instance)));
+    public static final RegistryObject<Item> example_chestplate = ITEMS.register("example_chestplate",() -> new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.CHEST, new Item.Properties().group(TestMod.TestItemGroup.instance)));
+    public static final RegistryObject<Item> example_leggings = ITEMS.register("example_leggings",() -> new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.LEGS, new Item.Properties().group(TestMod.TestItemGroup.instance)));
+    public static final RegistryObject<Item> example_boots = ITEMS.register("example_boots",() -> new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.FEET, new Item.Properties().group(TestMod.TestItemGroup.instance)));
 
-    @SubscribeEvent
-    public static void registerItems(final RegistryEvent.Register<Item> event){
-        //Items
-        event.getRegistry().register(new Item(new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_item"));
-        event.getRegistry().register(new Item(new Item.Properties().group(TestMod.TestItemGroup.instance).food(new Food.Builder().hunger(1).saturation(0.5f).setAlwaysEdible().effect(new EffectInstance(Effects.GLOWING, 60, 1),1).build())).setRegistryName("example_food"));
-
-        //Special items (advanced)
-        event.getRegistry().register(new SpecialItem(new Item.Properties().group(TestMod.TestItemGroup.instance).maxStackSize(1)).setRegistryName("example_advitem"));
-
-        //Armor
-        event.getRegistry().register(new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.HEAD, new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_helmet"));
-        event.getRegistry().register(new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.CHEST, new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_chestplate"));
-        event.getRegistry().register(new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.LEGS, new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_leggings"));
-        event.getRegistry().register(new ArmorItem(ModArmorMaterial.TEST, EquipmentSlotType.FEET, new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_boots"));
-
-        //Tools
-        event.getRegistry().register(new SwordItem(ModItemTier.EXAMPLE, 6, 2.3f, new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_sword"));
-        event.getRegistry().register(new PickaxeItem(ModItemTier.EXAMPLE, 4, 2.3f, new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_pickaxe"));
-        event.getRegistry().register(new AxeItem(ModItemTier.EXAMPLE, 7, 2.3f, new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_axe"));
-        event.getRegistry().register(new ShovelItem(ModItemTier.EXAMPLE, 5, 2.3f, new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_shovel"));
-        event.getRegistry().register(new HoeItem(ModItemTier.EXAMPLE, 2.3f, new Item.Properties().group(TestMod.TestItemGroup.instance)).setRegistryName("example_hoe"));
-    }
+    //tools
+    public static final RegistryObject<Item> example_sword = ITEMS.register("example_sword", () -> new SwordItem(ModItemTier.EXAMPLE, 6, 2.3f, new Item.Properties().group(TestMod.TestItemGroup.instance)));
+    public static final RegistryObject<Item> example_pickaxe = ITEMS.register("example_pickaxe", () -> new PickaxeItem(ModItemTier.EXAMPLE, 4, 2.5f, new Item.Properties().group(TestMod.TestItemGroup.instance)));
+    public static final RegistryObject<Item> example_axe = ITEMS.register("example_axe", () -> new AxeItem(ModItemTier.EXAMPLE, 7, 1.9f, new Item.Properties().group(TestMod.TestItemGroup.instance)));
+    public static final RegistryObject<Item> example_shovel = ITEMS.register("example_shovel", () -> new ShovelItem(ModItemTier.EXAMPLE, 5, 2.5f, new Item.Properties().group(TestMod.TestItemGroup.instance)));
+    public static final RegistryObject<Item> example_hoe = ITEMS.register("example_hoe", () -> new HoeItem(ModItemTier.EXAMPLE,2.5f, new Item.Properties().group(TestMod.TestItemGroup.instance)));
 
     //mod item tier ABOVE diamond
     public enum ModItemTier implements IItemTier{
         EXAMPLE(4, 1748, 12.0f, 6.0f, 12, () -> {
-           return Ingredient.fromItems(example_item);
+           return Ingredient.fromItems(example_item.get());
         });
 
         private final int harvestLevel;
@@ -121,7 +109,7 @@ public class ItemInit{
     //Mod custom armor
     public enum ModArmorMaterial implements IArmorMaterial{
         TEST(TestMod.MOD_ID+ ":example", 12, new int[] {4,7,9,4}, 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.5f, () -> {
-           return Ingredient.fromItems(ItemInit.example_item);
+           return Ingredient.fromItems(ItemInit.example_item.get());
         });
 
         private static final int[] MAX_DAMAGE_ARRAY = new int[] {16,16,16,16};

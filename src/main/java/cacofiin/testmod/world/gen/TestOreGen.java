@@ -18,7 +18,7 @@ public class TestOreGen {
     public static void generateOre(){
         for(Biome biome : ForgeRegistries.BIOMES){
             biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration
-                    (new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockInit.example_ore.getDefaultState(), 6))
+                    (new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockInit.example_ore.get().getDefaultState(), 6))
                     .withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(1, 0, 0, 15))));
         }
     }

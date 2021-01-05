@@ -1,10 +1,13 @@
 package cacofiin.testmod;
 
+import cacofiin.testmod.init.BlockInit;
 import cacofiin.testmod.init.ItemInit;
 import cacofiin.testmod.init.ModTileEntityTypes;
 import cacofiin.testmod.world.gen.TestOreGen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -12,12 +15,16 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.lwjgl.system.CallbackI;
+
 import java.util.stream.Collectors;
 
 @Mod("testmod")
@@ -34,10 +41,29 @@ public class TestMod{
         modEventBus.addListener(this::doClientStuff);
         instance=this;
 
+        //register stuff
+        ItemInit.ITEMS.register(modEventBus);
+        BlockInit.BLOCKS.register(modEventBus);
         ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    //register blockitems
+    @SubscribeEvent
+    public static void onRegisterItems(final RegistryEvent.Register<Item> event){
+        final IForgeRegistry<Item> registry = event.getRegistry();
+
+        BlockInit.BLOCKS.getEntries().stream().map(RegistryObject::get)
+                .forEach(block -> {
+           final Item.Properties properties = new Item.Properties().group(TestItemGroup.instance);
+           final BlockItem blockItem = new BlockItem(block,properties);
+           blockItem.setRegistryName(block.getRegistryName());
+           registry.register(blockItem);
+        });
+
+        LOGGER.debug("Registered BlockItems !");
     }
 
     private void setup(final FMLCommonSetupEvent event){
@@ -68,7 +94,7 @@ public class TestMod{
 
         @Override
         public ItemStack createIcon(){
-            return new ItemStack(ItemInit.example_item);
+            return new ItemStack(ItemInit.example_item.get());
         }
     }
 }
