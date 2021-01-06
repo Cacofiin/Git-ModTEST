@@ -1,5 +1,6 @@
 package cacofiin.testmod;
 
+import cacofiin.testmod.init.BiomeInit;
 import cacofiin.testmod.init.BlockInit;
 import cacofiin.testmod.init.ItemInit;
 import cacofiin.testmod.init.ModTileEntityTypes;
@@ -10,6 +11,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -45,9 +47,15 @@ public class TestMod{
         ItemInit.ITEMS.register(modEventBus);
         BlockInit.BLOCKS.register(modEventBus);
         ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
+        BiomeInit.BIOMES.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    @SubscribeEvent
+    public static void onRegisterBiomes(final RegistryEvent.Register<Biome> event){
+        BiomeInit.registerBiomes();
     }
 
     //register blockitems
