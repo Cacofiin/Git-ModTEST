@@ -1,9 +1,6 @@
 package cacofiin.testmod;
 
-import cacofiin.testmod.init.BiomeInit;
-import cacofiin.testmod.init.BlockInit;
-import cacofiin.testmod.init.ItemInit;
-import cacofiin.testmod.init.ModTileEntityTypes;
+import cacofiin.testmod.init.*;
 import cacofiin.testmod.world.gen.TestOreGen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -11,6 +8,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -36,6 +34,7 @@ public class TestMod{
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID="testmod";
     public static TestMod instance;
+    public static final ResourceLocation EXAMPLE_DIM_TYPE = new ResourceLocation(MOD_ID, "example");
 
     public TestMod() {
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -48,6 +47,7 @@ public class TestMod{
         BlockInit.BLOCKS.register(modEventBus);
         ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
         BiomeInit.BIOMES.register(modEventBus);
+        DimensionsInit.MOD_DIMENSION.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -57,6 +57,8 @@ public class TestMod{
     public static void onRegisterBiomes(final RegistryEvent.Register<Biome> event){
         BiomeInit.registerBiomes();
     }
+
+
 
     //register blockitems
     @SubscribeEvent
