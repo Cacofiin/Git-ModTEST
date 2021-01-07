@@ -1,6 +1,7 @@
 package cacofiin.testmod;
 
 import cacofiin.testmod.init.*;
+import cacofiin.testmod.portals.PortalBlockInit;
 import cacofiin.testmod.world.gen.TestOreGen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -48,6 +49,8 @@ public class TestMod{
         ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
         BiomeInit.BIOMES.register(modEventBus);
         DimensionsInit.MOD_DIMENSION.register(modEventBus);
+
+        PortalBlockInit.BLOCKS.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
