@@ -44,6 +44,7 @@ public class TestMod{
         instance=this;
 
         //register stuff
+        SoundInit.SOUNDS.register(modEventBus);
         ItemInit.ITEMS.register(modEventBus);
         BlockInit.BLOCKS.register(modEventBus);
         ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);

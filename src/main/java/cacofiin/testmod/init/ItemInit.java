@@ -2,6 +2,7 @@ package cacofiin.testmod.init;
 
 import cacofiin.testmod.TestMod;
 
+import cacofiin.testmod.objects.items.SeptemberMusicDiscItem;
 import cacofiin.testmod.objects.items.SpecialItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
@@ -52,6 +53,11 @@ public class ItemInit{
     public static final RegistryObject<Item> example_axe = ITEMS.register("example_axe", () -> new AxeItem(ModItemTier.EXAMPLE, 7, 1.9f, new Item.Properties().group(TestMod.TestItemGroup.instance)));
     public static final RegistryObject<Item> example_shovel = ITEMS.register("example_shovel", () -> new ShovelItem(ModItemTier.EXAMPLE, 5, 2.5f, new Item.Properties().group(TestMod.TestItemGroup.instance)));
     public static final RegistryObject<Item> example_hoe = ITEMS.register("example_hoe", () -> new HoeItem(ModItemTier.EXAMPLE,2.5f, new Item.Properties().group(TestMod.TestItemGroup.instance)));
+
+    //discs
+    public static final RegistryObject<Item> sept_disc = ITEMS.register("music_disc_september",
+            () -> new SeptemberMusicDiscItem(5, SoundInit.LAZY_SEPTEMBER_MUSIC.get(),
+            new Item.Properties().group(TestMod.TestItemGroup.instance).maxStackSize(1).rarity(Rarity.RARE)));
 
     //mod item tier ABOVE diamond
     public enum ModItemTier implements IItemTier{

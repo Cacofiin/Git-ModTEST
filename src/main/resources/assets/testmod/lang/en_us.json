@@ -6,6 +6,9 @@
 
   "item.testmod.example_advitem": "NYEH wand",
 
+  "item.testmod.music_disc_september":  "September",
+  "item.testmod.music_disc_september.desc": "Earth, Wind and Fire - September",
+
   "item.testmod.example_helmet": "NYEH helmet",
   "item.testmod.example_chestplate": "NYEH chestplate",
   "item.testmod.example_leggings": "NYEH leggings",

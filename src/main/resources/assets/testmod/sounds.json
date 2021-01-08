@@ -1,0 +1,12 @@
+{
+  "disc.september": {
+    "category": "disc",
+    "subtitle": "September",
+    "sounds": [
+      {
+        "name": "testmod:disc/september",
+        "stream": true
+      }
+    ]
+  }
+}
