@@ -48,6 +48,7 @@ public class TestMod{
         ItemInit.ITEMS.register(modEventBus);
         BlockInit.BLOCKS.register(modEventBus);
         ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
+        ModContainerType.CONTAINER_TYPES.register(modEventBus);
         BiomeInit.BIOMES.register(modEventBus);
         DimensionsInit.MOD_DIMENSION.register(modEventBus);
 

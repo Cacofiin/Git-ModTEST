@@ -6,6 +6,7 @@ import cacofiin.testmod.objects.blocks.ModStoneButton;
 import cacofiin.testmod.objects.blocks.ModStonePressurePlate;
 import cacofiin.testmod.objects.blocks.SpecialBlock;
 import cacofiin.testmod.objects.blocks.TileBlock;
+import com.ibm.icu.impl.CalendarCache;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -57,4 +58,6 @@ public class BlockInit{
 
     public static final RegistryObject<Block> example_wall = BLOCKS.register("example_wall", () -> new WallBlock(Block.Properties.create(Material.ROCK)
             .hardnessAndResistance(0.7f,15.0f).sound(SoundType.STONE).harvestTool(ToolType.PICKAXE).harvestLevel(1)));
+
+    public static RegistryObject<Block> example_chest = BLOCKS.register("example_chest", () -> new ExampleChestBlock(Block.Properties.from(BlockInit.example_block.get())));
 }

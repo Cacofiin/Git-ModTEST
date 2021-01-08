@@ -21,6 +21,7 @@
   "item.testmod.example_hoe": "NYEH Hoe",
 
   "block.testmod.example_advblock": "Direction",
+  "block.testmod.example_tile": "Quarry",
 
   "block.testmod.example_block": "Stony",
   "block.testmod.example_ore": "Nyeh Ore",
@@ -29,5 +30,7 @@
   "block.testmod.example_button": "Stony Butt",
   "block.testmod.example_stairs": "Stony Stairs",
   "block.testmod.example_wall": "Stony Wall",
-  "block.testmod.example_slab": "Stony Slab"
+  "block.testmod.example_slab": "Stony Slab",
+
+  "block.testmod.example_chest": "Stony Chest"
 }
