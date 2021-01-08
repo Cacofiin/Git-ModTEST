@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xx",
+    "i ",
+    "i "
+  ],
+  "key": {
+    "x": {
+      "item": "testmod:example_item"
+    },
+    "i": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "testmod:example_hoe"
+  }
+}

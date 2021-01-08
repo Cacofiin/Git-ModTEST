@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xOx",
+    "xix",
+    " i "
+  ],
+  "key": {
+    "x": {
+      "item": "testmod:example_item"
+    },
+    "i": {
+      "item": "minecraft:stick"
+    },
+    "O": {
+      "item": "minecraft:phantom_membrane"
+    }
+  },
+  "result": {
+    "item": "testmod:example_advitem"
+  }
+}

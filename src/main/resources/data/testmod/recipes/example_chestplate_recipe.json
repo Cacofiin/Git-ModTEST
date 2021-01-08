@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "x x",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "testmod:example_item"
+    }
+  },
+  "result": {
+    "item": "testmod:example_chestplate"
+  }
+}
